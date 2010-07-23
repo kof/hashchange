@@ -90,7 +90,7 @@ var iframe = (function(){
     
     function init( _callback ) {
         callback = _callback;
-        $iframe = $('<iframe style="display: none;" class="hashchange-iframe"/>').appendTo(document.body);
+        $iframe = $('<iframe style="display: none;" class="hashchange-iframe"/>').appendTo(document.body || document.documentElement);
         hash = location.hash; 
         iHash = iDoc().location.hash;
         check();
