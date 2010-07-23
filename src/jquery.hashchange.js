@@ -54,16 +54,21 @@ function teardown() {
  * For all browser without hashchange support and not IE
  */
 var loopCheck = (function(){
-    var hash,
-        timeout;
-    function init( callback ) {
+    var hash, timeout,
+        callback;
+    function init( _callback ) {
+        callback = _callback;
+        check();
+    } 
+    
+    function check() {
         if ( window.location.hash !== hash ) {
             hash = window.location.hash;
             callback();
         }
         
         timeout = window.setTimeout( check, 50 );
-    } 
+    }
     
     function destroy() {
         window.clearTimeout( timeout );        
