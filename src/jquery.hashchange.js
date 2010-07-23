@@ -1,5 +1,5 @@
 /*
- * hashchange - crossbrowser event implementation using jquery"s API for special events
+ * hashchange - crossbrowser event implementation using jquery's API for special events
  * 
  * 
  * @depends: jquery.js
