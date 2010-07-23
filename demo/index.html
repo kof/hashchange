@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hashchange event</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+	<script type="text/javascript" src="../src/jquery.hashchange.js"></script>
+	<script src="/jsui.de/showSource.js" type="text/javascript"></script>
+
+	<style>
+		.x-history-iframe{
+		}
+		#console{
+			position: absolute;
+			width: 200px;
+			height: 300px;
+			right: 20px;
+			top: 20px;
+			border: 1px solid black;
+			overflow: auto;
+		}
+	</style>
+
+</head> 
+
+<body>
+    <h2>Plugin methods</h2>
+    <button onclick="bind('test1')">bind1</button>
+    <button onclick="bind('test2')">bind2</button>
+    <button onclick="unbind('test1')">unbind1</button>
+    <button onclick="unbind('test2')">unbind2</button>
+    
+    
+    <h3>Testarea<h3>
+    
+    
+    <a href="#test1">Test1</a>
+    <a href="#test2">Test2</a>
+    <a href="#test3">Test3</a>
+    <a href="#test4">Test4</a>
+    <a href="#test5">Test5</a>
+    
+    
+    <div id="console"></div>
+
+	<script>
+	    
+        
+		function bind( namespace ){ 
+            $(window).bind('hashchange.' + namespace, {bla:123}, function(){
+                $('#console').append(location.hash + '<br />');
+            });
+		}
+        
+        
+        function unbind( namespace ) {
+            $(window).unbind('.' + namespace);
+        }
+
+	</script>
+</body>
+</html>
