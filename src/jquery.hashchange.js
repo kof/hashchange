@@ -15,6 +15,10 @@ var type = "hashchange",
     initialized = false,
     // on IE-8 in compatMode to IE-7 is onhashchange not supported
     support = "on" + type in window && ( document.documentMode === undefined || document.documentMode > 7 );
+
+$.fn.hashchange = function( callback ) {
+    return callback ? this.bind( type, callback ) : this.trigger( type, callback );        
+};
     
 // do the whole stuff only the event is not supported
 if ( support ) {

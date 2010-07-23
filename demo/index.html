@@ -28,6 +28,8 @@
     <button onclick="bind('test2')">bind2</button>
     <button onclick="unbind('test1')">unbind1</button>
     <button onclick="unbind('test2')">unbind2</button>
+    <button onclick="shortbind()">bind using shorthand</button>
+    <button onclick="$(window).hashchange()">trigger</button>
     
     
     <h3>Testarea<h3>
@@ -54,6 +56,12 @@
         
         function unbind( namespace ) {
             $(window).unbind('.' + namespace);
+        }
+        
+        function shortbind() {
+            $(window).hashchange(function(){
+                $('#console').append(location.hash + '<br />');
+            });
         }
 
 	</script>
